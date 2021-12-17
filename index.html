@@ -134,7 +134,7 @@
 
                 // 若失敗，執行以下...
                 error: function() {
-                    console.log('無法 read');
+                    console.log('read 失敗');
                 }
             });
         };
@@ -190,7 +190,7 @@
                     readMethod(e);
                 },
                 error: function() {
-                    console.log('無法 create');
+                    console.log('create 失敗');
                 }
             });
 
@@ -213,7 +213,7 @@
                     readMethod(e);
                 },
                 error: function() {
-                    console.log('無法 update');
+                    console.log('update 失敗');
                 }
             });
             document.forms['update'].reset();
