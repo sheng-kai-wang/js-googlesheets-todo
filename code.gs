@@ -40,7 +40,7 @@ function doPost (e) {
 
   try {
 
-    // 取得表格標題陣列
+    // 取得表格標題陣列(第幾個row, 第幾個column, 高度, 寬度)
     let headers = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0];
     
     // 取得最後一個 row 的下一個 row，也就是要新增資料的 row
@@ -105,3 +105,20 @@ function doUpdate (e) {
     sheet.deleteRow(sheet.getLastRow());
   };
 };
+
+// delete
+function doDelete(e) {
+  initial();
+  sheet.deleteRow(e.parameter.deleteRow);
+}
+
+// test for delete
+function deleteTest() {
+  let e = {
+    parameter: {
+      method: "DELETE",
+      deleteRow: 11
+    }
+  }
+  doPost(e);
+}
