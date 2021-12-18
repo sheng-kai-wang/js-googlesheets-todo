@@ -105,9 +105,3 @@ function doUpdate (e) {
     sheet.deleteRow(sheet.getLastRow());
   };
 };
-
-// delete
-function doDelete(e) {
-  initial();
-  sheet.deleteRow(e.parameter.deleteRow);
-}
