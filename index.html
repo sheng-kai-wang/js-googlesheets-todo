@@ -6,15 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- 引入jquery 之後使用AJAX與 Google App Script 互動 -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>message board</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap');
+
         * {
             /* border: solid 1px black; */
             box-sizing: border-box;
         }
-        
+
         body,
         html {
             width: 100%;
@@ -23,37 +26,38 @@
             font-family: 'Roboto', sans-serif;
             text-align: center;
         }
-        
+
         img {
             width: 100px;
         }
-        
+
         h2 {
             margin-top: 0;
         }
+
         /* 讓此 div 內的表單不要換行 */
-        
+
         .noWrap form {
             display: inline;
             margin: 0px 10px;
         }
-        
+
         .table {
             display: flex;
             justify-content: center;
         }
-        
+
         table,
         td {
             border: 1px solid #333;
         }
-        
+
         thead,
         tfoot {
             background-color: #333;
             color: #fff;
         }
-        
+
         table,
         td,
         th {
@@ -64,7 +68,8 @@
 
 <body>
     <br>
-    <img src="https://play-lh.googleusercontent.com/keE2gN0Hqh8-Tsf_RYZ_-yS2uo6ToqYVyRBv_UZaLXsgeeHBd2YPcEUWEF4DEtfGyb1h">
+    <img
+        src="https://play-lh.googleusercontent.com/keE2gN0Hqh8-Tsf_RYZ_-yS2uo6ToqYVyRBv_UZaLXsgeeHBd2YPcEUWEF4DEtfGyb1h">
     <h2>message board</h2>
     <form name="create">
         <select name="feeling">
@@ -108,7 +113,7 @@
 
     <script>
         // 放入你部署後產生的 網頁應用程式網址
-        const scriptURL = ""
+        const scriptURL = "https://script.google.com/macros/s/AKfycbz6NEv22niq31Ri0FXC1LA9X7_xKhV21_euYlmyzbLdfgLHrZY46D499a0Ujs_OAdMH/exec"
 
         // READ
         document.forms['read'].addEventListener('submit', e => {
@@ -127,13 +132,13 @@
                 type: "GET",
 
                 // 若成功，執行以下...
-                success: function(response) {
+                success: function (response) {
                     console.log(response);
                     display(response);
                 },
 
                 // 若失敗，執行以下...
-                error: function() {
+                error: function () {
                     console.log('read 失敗');
                 }
             });
@@ -184,12 +189,12 @@
                 data: new FormData(document.forms['create']),
                 contentType: false,
                 processData: false,
-                success: function(response) {
+                success: function (response) {
                     console.log(response);
                     alert("create 成功")
                     readMethod(e);
                 },
-                error: function() {
+                error: function () {
                     console.log('create 失敗');
                 }
             });
@@ -207,19 +212,17 @@
                 data: new FormData(document.forms["update"]),
                 contentType: false,
                 processData: false,
-                success: function(response) {
+                success: function (response) {
                     console.log(response);
                     alert("update 成功");
                     readMethod(e);
                 },
-                error: function() {
+                error: function () {
                     console.log('update 失敗');
                 }
             });
             document.forms['update'].reset();
         })
-
-        // DELETE TODO
     </script>
 </body>
 
